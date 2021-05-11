@@ -7,7 +7,7 @@
 
 package com.example.service;
 
-import java.util.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.dao.ProjectDao;
@@ -35,7 +35,5 @@ public class ProjectServiceImpl implements ProjectService {
 
 	public List<Project> findAll() {
 		return projectDao.findAll();
-
 	}
-
 }
