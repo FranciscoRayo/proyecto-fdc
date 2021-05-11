@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <title>Formulario proyectos - Proyecto 04 Java Ágil</title>
+</head>
+
+<body>
+    <div class="container" id="contenedor">
+        <h1>FORMULARIO PROYECTOS</h1>
+
+        <h2>AÑADIR PROYECTO NUEVO Y MODIFICAR PROYECTOS EXISTENTES</h2>
+        <form method="post" th:action="@{/save}" th:object="${project}">
+
+            <table>
+                <tr>
+                    <td><label for="proyecto">Nombre del proyecto:</label></td>
+                    <td><input type="text" th:field="*{proyecto}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="fechafin">Fecha de finalización:</label></td>
+                    <td><input type="text" th:field="*{fechafin}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="resumen">Resumen:</label></td>
+                    <td><input type="text" th:field="*{resumen}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="descripcion">Descripción:</label></td>
+                    <td><input type="text" th:field="*{descripcion}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="imagen">Ruta y nombre de la imágen:</label></td>
+                    <td><input type="text" th:field="*{imagen}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="cliente">Cliente:</label></td>
+                    <td>
+                        <select name="client">
+                            <option th:each="client : ${clients}" th:value="${client.idClient}"
+                                th:text="${client.nombre}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+            <input type="submit" value="Salvar Proyecto">
+
+        </form>
+    </div>
+</body>
+
+</html>

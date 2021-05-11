@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado proyectos - Proyecto 04 Java Ágil</title>
+</head>
+
+<body>
+    <div class="container" id="contenedor">
+
+        <h1>PROYECTOS JAVA ÁGIL</h1>
+        <h2>LISTADO DE PROYECTOS REALIZADOS</h2>
+
+        <table>
+            <tr>
+                <td>Nombre del proyecto</td>
+                <td>Fecha de finalización</td>
+                <td>Resumen</td>
+                <td>Descripción</td>
+                <td>Ruta y nombre de la imágen</td>
+                <td>Cliente</td>
+            </tr>
+            <tr th:each="project, status:${projectList}">
+                <td th:text="${status.index+1}" />
+                <td th:text="${project.proyecto}" />
+                <td th:text="${project.fechafin}" />
+                <td th:text="${project.resumen}" />
+                <td th:text="${project.descripcion}" />
+                <td th:text="${project.imagen}" />
+                <td th:text="${project.cliente}" />
+            </tr>
+        </table>
+        <a href="/new" class="btn btn-primary">Nuevo Proyecto</a>
+    </div>
+</body>
+
+</html>
