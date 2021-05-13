@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class ProjectController {
 
 	@Autowired
 	ProjectService projectService;
-	
+
 	@Autowired
 	ClientService clientService;
 
@@ -44,18 +42,15 @@ public class ProjectController {
 	@GetMapping("/backoffice/proyectos")
 	public String listProject(Model m) {
 		log.info("----- Inside listProject 1");
-		m.addAttribute("projectList", projectService.findAll()); // ese projectList es el objeto , así guardo la información
-		/*List<Project> l = projectService.findAll();
-		System.out.println(l.size());
-		for(Project p:l){
-			System.out.println(p);
-		}
-*/
+		m.addAttribute("projectList", projectService.findAll()); // ese projectList es el objeto , así guardo la
+																	// información
+		/*
+		 * List<Project> l = projectService.findAll(); System.out.println(l.size());
+		 * for(Project p:l){ System.out.println(p); }
+		 */
 		log.info("-------", projectService.findAll().toString());
 		return "ProjectList"; // esta es la pagina web a la que voy
 	}
-
-
 
 	// Alta proyecto
 	@GetMapping("backoffice/proyectos/new")
@@ -65,12 +60,12 @@ public class ProjectController {
 		model.addObject("clients", clientService.findAll());
 		return model;
 	}
-	
-	//salvar proyecto
+
+	// salvar proyecto
 	@PostMapping("backoffice/proyectos/save")
 	public ModelAndView saveProject(Project project) {
-		log.info("----- Inside saveProject");	
-		log.info("----- objeto Project"+project);	
+		log.info("----- Inside saveProject");
+		log.info("----- objeto Project" + project);
 		projectService.save(project);
 		return new ModelAndView("redirect:/backoffice/proyectos/");
 	}
