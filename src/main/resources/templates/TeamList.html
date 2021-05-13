@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+<title>Listado miembros equipo - Proyecto 04 Java Ágil</title>
+</head>
+
+<body>
+	<div class="container" id="contenedor">
+
+		<h1>EQUIPO JAVA ÁGIL</h1>
+		<h2>LISTADO DE MIEMBROS DEL EQUIPO</h2>
+
+		<table>
+			<tr>
+				<td>Nombre</td>
+				<td>Apellidos</td>
+				<td>Resumen</td>
+				<td>Ruta y nombre de la imágen:</td>
+				<td>Cargo</td>
+			</tr>
+			<tr th:each="employee, status:${TeamList}">
+				<td th:text="${employee.nombrePers}" />
+				<td th:text="${employee.apellidos}" />
+				<td th:text="${employee.resumenPers}" />
+				<td th:text="${employee.foto}" />
+				<td th:text="${employee.cargo.cargo}" />
+			</tr>
+		</table>
+		<a href="/backoffice/equipo/new" class="btn btn-primary">Nuevo miembro del equipo</a>
+	</div>
+</body>
+
+</html>

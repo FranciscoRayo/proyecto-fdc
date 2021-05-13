@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <title>Formulario equipo - Proyecto 04 Java Ágil</title>
+</head>
+
+<body>
+    <div class="container" id="contenedor">
+        <h1>FORMULARIO EQUIPO</h1>
+
+        <h2>AÑADIR Y MODIFICAR</h2>
+        <form method="post" th:action="@{/backoffice/equipo/save}" th:object="${employee}">
+
+            <table>
+                <tr>
+                    <td><label for="nombrePers">Nombre:</label></td>
+                    <td><input type="text" th:field="*{nombrePers}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="apellidos">Apellidos:</label></td>
+                    <td><input type="text" th:field="*{apellidos}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="resumenPers">Resumen:</label></td>
+                    <td><input type="text" th:field="*{resumenPers}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="foto">Ruta y nombre de la imágen:</label></td>
+                    <td><input type="text" th:field="*{foto}" /></td>
+                </tr>
+                <tr>
+                    <td><label for="cargo">Cargo:</label></td>
+                    <td>
+                        <select name="cargo" th:field="*{cargo}">
+                            <option th:each="cargo : ${cargos}" th:value="${cargo.idCargo}"
+                                th:text="${cargo.cargo}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+            <input type="submit" value="Salvar miembro del Equipo">
+
+        </form>
+    </div>
+</body>
+
+</html>
