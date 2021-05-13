@@ -1,11 +1,12 @@
-package com.example.dao;
+package com.example.demo.dao;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.model.Client;
+
+import com.example.demo.model.Client;
 
 @Repository
 public interface ClientDao extends JpaRepository<Client, Integer> {
-	List<Client> findAll();
+	//List<Client> findAll();
 }

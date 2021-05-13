@@ -6,10 +6,11 @@
  * Version: 1.0
  * Autor: Jin Mun  **/
 
-package com.example.service;
+package com.example.demo.service;
 
 import java.util.List;
-import com.example.model.Project;
+
+import com.example.demo.model.Project;
 
 public interface ProjectService {
 
@@ -17,5 +18,8 @@ public interface ProjectService {
 
 	// Listar proyectos
 	public List<Project> findAll();
+
+	// Salvar proyecto
+	public void save(Project project);
 
 }

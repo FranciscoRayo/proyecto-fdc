@@ -5,11 +5,11 @@
  * Version: 1.0
  * Autor: Pedro Barrantes Parejo  **/
 
-package com.example.service;
+package com.example.demo.service;
 
 import java.util.List;
 
-import com.example.model.Client;
+import com.example.demo.model.Client;
 
 public interface ClientService {
 

@@ -6,13 +6,16 @@
  * Version: 1.0
  * Autor: Rocio Jimenez Moreno  **/
 
-package com.example.model;
+package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /*
@@ -61,7 +64,10 @@ public class Project {
 	/**
 	 * Identificativo de la empresa
 	 */
-	private int empresa;
+	
+	@ManyToOne 
+	@JoinColumn(name="empresa")
+	private Client empresa;
 
 	// -----------------------
 	// Constructores
@@ -86,7 +92,7 @@ public class Project {
 	 * @param empresa     identificador de la empresa
 	 */
 	public Project(int id, String proyecto, String fechafin, String resumen, String descripcion, String imagen,
-			int empresa) {
+			Client empresa) {
 		super();
 		this.id = id;
 		this.proyecto = proyecto;
@@ -214,7 +220,7 @@ public class Project {
 	 * 
 	 * @return identificador de la empresa
 	 */
-	public int getEmpresa() {
+	public Client getEmpresa() {
 		return empresa;
 	}
 
@@ -223,7 +229,7 @@ public class Project {
 	 * 
 	 * @param empresa
 	 */
-	public void setEmpresa(int empresa) {
+	public void setEmpresa(Client empresa) {
 		this.empresa = empresa;
 	}
 

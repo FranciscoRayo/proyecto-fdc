@@ -5,14 +5,15 @@
  * version: 1.0
  * @author Jin Mun
  */
-package com.example.dao;
+package com.example.demo.dao;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.model.Project;
+
+import com.example.demo.model.Project;
 
 @Repository
 public interface ProjectDao extends JpaRepository<Project, Integer> {
-	List<Project> findAll();
+	//List<Project> findAll();
 }
