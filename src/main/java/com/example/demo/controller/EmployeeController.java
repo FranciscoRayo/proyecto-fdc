@@ -46,6 +46,16 @@ public class EmployeeController {
 		log.info("-------", employeeService.findAll().toString());
 		return "TeamList"; // aqui es donde voy
 	}
+	
+	// listar empleados front
+	@GetMapping("/equipo")
+	public String listEmployeeFront(Model n) {
+		log.info("----- Inside TeamList ");
+		n.addAttribute("TeamList", employeeService.findAll());
+
+		log.info("-------", employeeService.findAll().toString());
+		return "FrontTeamList"; // aqui es donde voy
+	}
 
 	/**
 	 * Metodo que da de alta a los empleados

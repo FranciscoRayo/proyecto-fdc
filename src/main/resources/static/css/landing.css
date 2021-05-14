@@ -1,0 +1,61 @@
+footer {
+    background: url("../img/bf21cd40-freshgoods-cta-bg_0000000rs0f100001q01o.jpg");
+}
+
+#home .jumbotron {
+    background-image: url("../img/Team-50.png");
+    background-size: cover;
+    padding-top: 125px;
+    padding-bottom: 125px;
+}
+#seccion-proyectos .jumbotron {
+    background-image: url("../img/proyectos-header-50.jpg");
+    background-position: center;
+    background-size: cover;
+    padding-top: 157px;
+    padding-bottom: 157px;
+}
+#seccion-equipo .jumbotron {
+    background-image: url("../img/equipo.jpg");
+    background-position: center;
+    background-size: cover;
+    padding-top: 157px;
+    padding-bottom: 157px;
+}
+
+
+
+#clientes,
+#quienes,
+#soluciones {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+p.lead a {
+    font-weight: bold;
+}
