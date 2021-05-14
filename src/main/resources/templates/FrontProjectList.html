@@ -24,7 +24,7 @@
 				<td>Ruta imágen</td>
 				<td>Cliente</td>
 			</tr>
-			<tr th:each="project, status:${projectList}">
+			<tr th:each="project, status:${projectListFront}">
 				<td th:text="${project.proyecto}" />
 				<td th:text="${project.fechafin}" />
 				<td th:text="${project.resumen}" />
