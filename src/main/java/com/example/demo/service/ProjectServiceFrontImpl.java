@@ -7,10 +7,12 @@
 
 package com.example.demo.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.dao.ProjectDao;
 import com.example.demo.model.Project;
@@ -18,17 +20,17 @@ import com.example.demo.model.Project;
 @Service
 public class ProjectServiceFrontImpl implements ProjectServiceFront {
 
-	@Autowired
-	ProjectDao projectDao;
-
 	/**
 	 * Método para listar todos los proyectos para el front.
 	 * 
 	 * @author Francisco Rayo
 	 */
-	@Override
-	public List<Project> findAll() {
-		return projectDao.findAll();
+	// RestTemplate
+	public List<Project> listProjectFront() {
+		RestTemplate restTemplate = new RestTemplate();
+		Project[] projects = restTemplate.getForObject("http://localhost:5000/backoffice/proyectos/", Project[].class);
+		List<Project> listProject = Arrays.asList(projects);
+		return listProject;
 	}
 
 }
