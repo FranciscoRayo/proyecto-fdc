@@ -3,18 +3,14 @@
 * Descripción: implementación de la interfaz ProjectServiceFrontImpl
 * Fecha: 13/05/2021
 * Versión: 1.0
-* @author Francisco Rayo */
+* @author Francisco Rayo, Rocio Jiménez  */
 
 package com.example.demo.service;
 
 import java.util.Arrays;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import com.example.demo.dao.ProjectDao;
 import com.example.demo.model.Project;
 
 @Service
@@ -23,7 +19,7 @@ public class ProjectServiceFrontImpl implements ProjectServiceFront {
 	/**
 	 * Método para listar todos los proyectos para el front.
 	 * 
-	 * @author Francisco Rayo
+	 * @author Francisco Rayo, Rocio Jiménez 
 	 */
 	// RestTemplate
 	public List<Project> listProjectFront() {
