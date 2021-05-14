@@ -19,6 +19,7 @@ public interface ProjectServiceFront {
 	 * 
 	 * @author Francisco Rayo
 	 */
+
 	public List<Project> listProjectFront();
 
 }
