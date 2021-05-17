@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Project;
 import com.example.demo.service.ClientService;
@@ -59,6 +60,16 @@ public class ProjectController {
 		model.addObject("project", new Project());
 		model.addObject("clients", clientService.findAll());
 		return model;
+	}
+
+	// editar proyectos
+	@GetMapping("backoffice/proyectos/edit")
+	public String editProject(@RequestParam("id")int id, Model m) {
+		log.info("----- Inside editProject");
+		m.addAttribute("project", projectService.getOne(id));// pido el proyecto a la base de datos para tener los valores a
+															// modificar
+		m.addAttribute("clients", clientService.findAll());
+		return "ProjectForm";
 	}
 
 	// salvar proyecto

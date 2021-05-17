@@ -18,6 +18,9 @@ public interface ProjectService {
 
 	// Listar proyectos
 	public List<Project> findAll();
+	
+	//Para recuperar proyectos 
+	public Project getOne(int id);
 
 	// Salvar proyecto
 	public void save(Project project);

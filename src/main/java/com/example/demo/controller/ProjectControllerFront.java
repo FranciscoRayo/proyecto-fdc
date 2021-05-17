@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.demo.service.ProjectServiceFront;
 
 /**
- * Nombre Clase: ProjectControllerFront.java 
- * Descripcin: Clase que representa al controlador del proyecto en frontoffice 
- * Fecha: 14/05/2021 
- * Version: 1.0 
- * Autor: Jin Mun, Rocío Jiménez , Francisco Rayo
+ * Nombre Clase: ProjectControllerFront.java Descripcin: Clase que representa al
+ * controlador del proyecto en frontoffice Fecha: 14/05/2021 Version: 1.0 Autor:
+ * Jin Mun, Rocío Jiménez , Francisco Rayo
  **/
 
 @Controller
@@ -27,12 +25,19 @@ public class ProjectControllerFront {
 	/**
 	 * Método para listar todos los proyectos para el front
 	 * 
-	 * @author Francisco Rayo, Rocío Jiménez 
+	 * @author Francisco Rayo, Rocío Jiménez
 	 */
 	@GetMapping("/proyectos")
 	public String listProjectFront(Model pf) {
-	  pf.addAttribute("projectListFront", projectServiceFront.listProjectFront());
-	 	 return "FrontProjectList"; // esta es la pagina web a la que voy
-	 }
+		pf.addAttribute("projectListFront", projectServiceFront.listProjectFront());
+		return "FrontProjectList"; // esta es la pagina web a la que voy
+	}
+
+	/*
+	@GetMapping("/proyectos/detalles")
+	public String detailProject(Model pf) {
+		
+		return "FrontProjectList";
+	}*/
 
 }
