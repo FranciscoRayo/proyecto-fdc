@@ -26,6 +26,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.findAll();
 	}
 
+	
+	@Override
+	public Employee getOne(int id) {
+		return employeeDao.getOne(id);//devuelve un id
+	}
+
+	
 	// Para añadir empleado
 	@Override
 	public void save(Employee employee) {

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Employee;
@@ -16,7 +17,7 @@ import com.example.demo.service.PositionService;
 /**
  * Nombre Clase: EmployeeController.java Descripcin: Clase que recoge los
  * controladores de este proyecto con respecto a los empleados Fecha: 13/05/2021
- * Version: 1.0 Autor: Jin Mun / Francisco Rayo / Rocio Jimenez / Pedro
+ * Version: 1.0 Autor: Jin Mun / Francisco Rayo / Rocio Jimenez / Pedro Barrantes
  * 
  **/
 
@@ -46,7 +47,7 @@ public class EmployeeController {
 		log.info("-------", employeeService.findAll().toString());
 		return "TeamList"; // aqui es donde voy
 	}
-	
+
 	// listar empleados front
 	@GetMapping("/equipo")
 	public String listEmployeeFront(Model n) {
@@ -72,6 +73,15 @@ public class EmployeeController {
 
 		model1.addObject("cargos", positionService.findAll());
 		return model1;
+	}
+
+	// editar empleado
+	@GetMapping("backoffice/equipo/edit")
+	public String editEmployee(@RequestParam("idPers") int id, Model m) {
+		log.info("------Inside editEmployee");
+		m.addAttribute("employee", employeeService.getOne(id));
+		m.addAttribute("cargos", positionService.findAll());
+		return "TeamForm";
 	}
 
 	/**

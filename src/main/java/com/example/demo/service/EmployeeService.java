@@ -16,6 +16,10 @@ public interface EmployeeService {
 	// Para listar todos los empleados
 	public List<Employee> findAll();
 
+
+	//Para recuperar empleados 
+	public Employee getOne(int id);
+	
 	// Para update y añadir empleado
 	public void save(Employee employee);
 
