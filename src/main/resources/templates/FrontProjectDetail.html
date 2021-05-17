@@ -52,13 +52,12 @@
                 <div class="row align-items-center featurette">
                     <div class="col-md-7">
                         <h2 class="featurette-heading" th:text="${project.proyecto}" />
-                        <p class="lead" th:text="${project.resumen}" />
-                        <i class="far fa-calendar-alt"></i>
                         <p class="lead" th:text="${project.fechafin}" />
+                        <p class="lead" th:text="${project.resumen}" />
+                        <p class="lead" th:text="${project.empresa.nombre}" />
                         <p class="lead" th:text="${project.descripcion}" />
                         <p class="lead">
-                            <a th:href="@{/proyectos/?id=} + ${project.id}" />
-                            Leer más »</a>
+							<a href="/proyectos/" >Ver más proyectos »</a>
                         </p>
                     </div>
                     <div class="col-md-1"></div>

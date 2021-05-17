@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.demo.model.Project;
 import com.example.demo.service.ProjectServiceFront;
 
 /**
@@ -33,11 +36,12 @@ public class ProjectControllerFront {
 		return "FrontProjectList"; // esta es la pagina web a la que voy
 	}
 
-	/*
-	@GetMapping("/proyectos/detalles")
-	public String detailProject(Model pf) {
-		
-		return "FrontProjectList";
-	}*/
+	@GetMapping("backoffice/proyectos/{id}")
+	public String detailProject(@PathVariable Integer id, Model pf) {
+		Project project = projectServiceFront.findById(id);
+		pf.addAttribute(project);
+		//pf.addAttribute(client);
+		return "FrontProjectDetail";
+	}
 
 }
