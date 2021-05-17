@@ -9,6 +9,8 @@ package com.example.demo.service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.example.demo.model.Project;
@@ -27,6 +29,14 @@ public class ProjectServiceFrontImpl implements ProjectServiceFront {
 		Project[] projects = restTemplate.getForObject("http://localhost:5000/backoffice/proyectos/", Project[].class);
 		List<Project> listProject = Arrays.asList(projects);
 		return listProject;
+	}
+
+	@Override
+	public Project findById(Integer id) {		
+		RestTemplate restTemplate = new RestTemplate();
+		Project project = restTemplate.getForObject("http://localhost:5000/backoffice/proyectos/"+id, Project.class);
+		//return project.getId(id).orElse(null);
+		return project;
 	}
 
 }

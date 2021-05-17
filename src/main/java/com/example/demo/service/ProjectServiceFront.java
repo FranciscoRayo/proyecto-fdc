@@ -22,4 +22,6 @@ public interface ProjectServiceFront {
 
 	public List<Project> listProjectFront();
 
+	public Project findById(Integer id);
+
 }
