@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.example.demo.model.Employee;
 import com.example.demo.service.EmployeeService;
+import com.example.demo.service.FakeEmployeeService;
 import com.example.demo.service.PositionService;
 
 /**
@@ -26,6 +26,9 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
+	
+	@Autowired
+	FakeEmployeeService fakeEmployeeService;	
 
 	@Autowired
 	PositionService positionService;
@@ -53,8 +56,8 @@ public class EmployeeController {
 	public String listEmployeeFront(Model n) {
 		log.info("----- Inside TeamList ");
 		n.addAttribute("TeamList", employeeService.findAll());
-
-		log.info("-------", employeeService.findAll().toString());
+		n.addAttribute("FakeTeamList", fakeEmployeeService.findAll(16));
+		log.info("----- Contenido de empl ----------------------" + n.toString());
 		return "FrontTeamList"; // aqui es donde voy
 	}
 
