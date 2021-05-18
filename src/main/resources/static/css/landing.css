@@ -1,61 +1,79 @@
 footer {
-    background: url("../img/bf21cd40-freshgoods-cta-bg_0000000rs0f100001q01o.jpg");
+	background:
+		url("../img/bf21cd40-freshgoods-cta-bg_0000000rs0f100001q01o.jpg");
+}
+
+/* sombra texto fino header */
+div.jumbotron>div>div>div>p {
+	text-shadow: 0 0 black;
+}
+/* fuente tarjetas misión, visión...*/
+div.album.bg-light ul li, .card-text {
+	font-size: 1.20rem;
+	font-weight: 300;
+}
+.card-body {
+    min-height: 328px;
+}
+
+.album.bg-light {
+	padding-bottom: 65px;
+	padding-top: 65px;
 }
 
 #home .jumbotron {
-    background-image: url("../img/Team-50.png");
-    background-size: cover;
-    padding-top: 125px;
-    padding-bottom: 125px;
+	background-image: url("../img/Team-50.png");
+	background-size: cover;
+	padding-top: 125px;
+	padding-bottom: 125px;
+	margin-bottom: 0;
 }
+
 #seccion-proyectos .jumbotron {
-    background-image: url("../img/proyectos-header-50.jpg");
-    background-position: center;
-    background-size: cover;
-    padding-top: 157px;
-    padding-bottom: 157px;
+	background-image: url("../img/proyectos-header-50.jpg");
+	background-position: center;
+	background-size: cover;
+	padding-top: 157px;
+	padding-bottom: 157px;
 }
+
 #seccion-equipo .jumbotron {
-    background-image: url("../img/equipo.jpg");
-    background-position: center;
-    background-size: cover;
-    padding-top: 157px;
-    padding-bottom: 157px;
+	background-image: url("../img/equipo.jpg");
+	background-position: center;
+	background-size: cover;
+	padding-top: 157px;
+	padding-bottom: 157px;
 }
 
-
-
-#clientes,
-#quienes,
-#soluciones {
-    padding-top: 60px;
-    padding-bottom: 60px;
+#clientes, #quienes, #soluciones {
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-    font-family: 'Roboto', sans-serif;
+h1, h2, h3, h4, p {
+	font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-    font-size: 50px;
+	font-size: 50px;
 }
+
 h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
+	font-size: 40px;
+	margin-bottom: 15px;
 }
+
 h3 {
-    font-size: 25px;
-    margin-bottom: 15px;
-    margin-top: 25px;
+	font-size: 25px;
+	margin-bottom: 15px;
+	margin-top: 25px;
 }
+
 h4 {
-    font-size: 20px;
-    margin-bottom: 15px;
+	font-size: 20px;
+	margin-bottom: 15px;
 }
+
 p.lead a {
-    font-weight: bold;
+	font-weight: bold;
 }

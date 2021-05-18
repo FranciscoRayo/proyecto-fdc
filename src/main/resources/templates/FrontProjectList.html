@@ -54,7 +54,7 @@
                         <h2 class="featurette-heading" th:text="${project.proyecto}" />
                         <p class="lead" th:text="${project.resumen}" />
                         <p class="lead">
-                            <a href="#">Leer más »</a>
+                            <a th:href="@{/proyectos/} + ${project.id}" />Leer más »</a>
                         </p>
                     </div>
                     <div class="col-md-1"></div>

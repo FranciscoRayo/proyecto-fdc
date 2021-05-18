@@ -35,13 +35,19 @@ public class ProjectControllerFront {
 		pf.addAttribute("projectListFront", projectServiceFront.listProjectFront());
 		return "FrontProjectList"; // esta es la pagina web a la que voy
 	}
+	
+	//carga de index
+	@GetMapping("/")
+	public String index() {
+		return "index"; // esta es la pagina web a la que voy
+	}
+	
 
-	@GetMapping("backoffice/proyectos/{id}")
+	@GetMapping("/proyectos/{id}")
 	public String detailProject(@PathVariable Integer id, Model pf) {
 		Project project = projectServiceFront.findById(id);
 		pf.addAttribute(project);
 		//pf.addAttribute(client);
 		return "FrontProjectDetail";
 	}
-
 }
