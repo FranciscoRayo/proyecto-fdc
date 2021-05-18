@@ -22,6 +22,7 @@
 				<td>Resumen</td>
 				<td>Ruta y nombre de la imágen:</td>
 				<td>Cargo</td>
+				<td>Acciones</td>
 			</tr>
 			<tr th:each="employee, status:${TeamList}">
 				<td th:text="${employee.nombrePers}" />
@@ -29,6 +30,7 @@
 				<td th:text="${employee.resumenPers}" />
 				<td th:text="${employee.foto}" />
 				<td th:text="${employee.cargo.cargo}" />
+				<td><a th:href="@{/backoffice/equipo/edit/?idPers=} + ${employee.idPers}">Modificar</a></td>
 			</tr>
 		</table>
 		<a href="/backoffice/equipo/new" class="btn btn-primary">Nuevo miembro del equipo</a>

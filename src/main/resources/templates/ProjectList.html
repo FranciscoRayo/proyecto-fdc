@@ -23,6 +23,7 @@
 				<td>Descripción</td>
 				<td>Ruta imágen</td>
 				<td>Cliente</td>
+				<td>Acciones</td>
 			</tr>
 			<tr th:each="project, status:${projectList}">
 				<td th:text="${project.proyecto}" />
@@ -31,6 +32,7 @@
 				<td th:text="${project.descripcion}" />
 				<td th:text="${project.imagen}" />
 				<td th:text="${project.empresa.nombre}" />
+				<td><a th:href="@{/backoffice/proyectos/edit/?id=} + ${project.id}">Modificar</a></td>
 			</tr>
 		</table>
 		<a href="/backoffice/proyectos/new" class="btn btn-primary">Nuevo Proyecto</a>
