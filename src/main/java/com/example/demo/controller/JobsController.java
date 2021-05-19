@@ -17,7 +17,7 @@ public class JobsController {
 	 * 
 	 * @author Francisco Rayo
 	 */
-	@GetMapping("/frontoffice/ofertas-de-trabajo")
+	@GetMapping("/ofertas-de-trabajo")
 	public String jobs() {
 		return "Jobs";
 	}

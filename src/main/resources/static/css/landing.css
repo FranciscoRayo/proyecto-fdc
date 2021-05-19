@@ -37,6 +37,14 @@ div.album.bg-light ul li, .card-text {
 	padding-bottom: 157px;
 }
 
+#seccion-jobs .jumbotron {
+    background-image: url("../img/jobs-header-50.jpg");
+    background-position: center;
+    background-size: cover;
+    padding-top: 157px;
+    padding-bottom: 157px;
+}
+
 #seccion-equipo .jumbotron {
 	background-image: url("../img/equipo.jpg");
 	background-position: center;
