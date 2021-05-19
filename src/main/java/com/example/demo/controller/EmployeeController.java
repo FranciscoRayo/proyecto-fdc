@@ -17,7 +17,8 @@ import com.example.demo.service.PositionService;
 /**
  * Nombre Clase: EmployeeController.java Descripcin: Clase que recoge los
  * controladores de este proyecto con respecto a los empleados Fecha: 13/05/2021
- * Version: 1.0 Autor: Jin Mun / Francisco Rayo / Rocio Jimenez / Pedro Barrantes
+ * Version: 1.0 Autor: Jin Mun / Francisco Rayo / Rocio Jimenez / Pedro
+ * Barrantes
  * 
  **/
 
@@ -26,9 +27,9 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@Autowired
-	FakeEmployeeService fakeEmployeeService;	
+	FakeEmployeeService fakeEmployeeService;
 
 	@Autowired
 	PositionService positionService;
@@ -85,6 +86,16 @@ public class EmployeeController {
 		m.addAttribute("employee", employeeService.getOne(id));
 		m.addAttribute("cargos", positionService.findAll());
 		return "TeamForm";
+	}
+
+	// borra empleado
+	@GetMapping("backoffice/equipo/delete")
+	public ModelAndView deleteEmployee(@RequestParam("idPers") int id) {
+		log.info("----- Inside deleteEmployee");
+		employeeService.deleteById(id);
+		return new ModelAndView("redirect:/backoffice/equipo/"); // redirijo porque no quiero ir a TeamList directamente
+																	// sino que quiero
+		// ir pero con los datos ya cargados
 	}
 
 	/**

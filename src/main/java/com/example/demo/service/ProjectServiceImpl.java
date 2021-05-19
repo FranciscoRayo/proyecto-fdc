@@ -38,15 +38,18 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDao.findAll();
 	}
 
-	
 	public Project getOne(int id) {
-		return projectDao.getOne(id);//devuelve un id
+		return projectDao.getOne(id);// devuelve un id
 	}
 
-	
 	@Override
 	public void save(Project project) {
 		projectDao.save(project);
 	}
 
+	@Override
+	public void deleteById(int id) {
+		projectDao.deleteById(id);
+
+	}
 }
