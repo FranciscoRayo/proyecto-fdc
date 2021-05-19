@@ -64,10 +64,11 @@ public class ProjectController {
 
 	// editar proyectos
 	@GetMapping("backoffice/proyectos/edit")
-	public String editProject(@RequestParam("id")int id, Model m) {
+	public String editProject(@RequestParam("id") int id, Model m) {
 		log.info("----- Inside editProject");
-		m.addAttribute("project", projectService.getOne(id));// pido el proyecto a la base de datos para tener los valores a
-															// modificar
+		m.addAttribute("project", projectService.getOne(id));// pido el proyecto a la base de datos para tener los
+																// valores a
+																// modificar
 		m.addAttribute("clients", clientService.findAll());
 		return "ProjectForm";
 	}
@@ -80,4 +81,24 @@ public class ProjectController {
 		projectService.save(project);
 		return new ModelAndView("redirect:/backoffice/proyectos/");
 	}
+
+	/**
+	 * Metodo que elimina los proyectos
+	 * 
+	 * @author Jin Mun
+	 * 
+	 * @param int "id"
+	 */
+
+	// Eliminar proyectos
+
+	// borra usuarios
+	@GetMapping("backoffice/proyectos/delete")
+
+	public ModelAndView deleteProject(@RequestParam("id") int id) {
+		log.info("----- Inside deleteProject");
+		projectService.deleteById(id);
+		return new ModelAndView("redirect:/backoffice/proyectos");
+	}
+
 }

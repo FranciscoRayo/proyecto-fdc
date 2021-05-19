@@ -14,6 +14,7 @@
 
 		<h1>EQUIPO JAVA ÁGIL</h1>
 		<h2>LISTADO DE MIEMBROS DEL EQUIPO</h2>
+		
 
 		<table>
 			<tr>
@@ -30,10 +31,15 @@
 				<td th:text="${employee.resumenPers}" />
 				<td th:text="${employee.foto}" />
 				<td th:text="${employee.cargo.cargo}" />
-				<td><a th:href="@{/backoffice/equipo/edit/?idPers=} + ${employee.idPers}">Modificar</a></td>
+				<td><a
+					th:href="@{/backoffice/equipo/edit/?idPers=} + ${employee.idPers}">Modificar</a></td>
+				<td><a
+					th:href="@{/backoffice/equipo/delete/?idPers=} + ${employee.idPers}">Eliminar</a></td>
+
 			</tr>
 		</table>
-		<a href="/backoffice/equipo/new" class="btn btn-primary">Nuevo miembro del equipo</a>
+		<a href="/backoffice/equipo/new" class="btn btn-primary">Nuevo
+			miembro del equipo</a>
 	</div>
 </body>
 

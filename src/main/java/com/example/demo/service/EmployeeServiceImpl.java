@@ -31,7 +31,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee getOne(int id) {
 		return employeeDao.getOne(id);//devuelve un id
 	}
-
+	//Para eliminar empleados 
+	
+	@Override
+	public void deleteById(int id) {
+		employeeDao.deleteById(id);		
+	}
 	
 	// Para añadir empleado
 	@Override
