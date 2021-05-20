@@ -59,7 +59,7 @@
 					<div class="col-lg-3" th:each="employee, status:${TeamList}">
 						<img class="rounded-circle" alt="" width="140" height="140"
 							th:src="@{/img/} + ${employee.foto}" />
-						<h3 th:text="${employee.nombrePers}+${employee.apellidos}" />
+						<h3 th:text="${employee.nombrePers} + ' ' + ${employee.apellidos}" />
 						<h4 th:text="${employee.cargo.cargo}" />
 						<p class="lead" th:text="${employee.resumenPers}" />
 					</div>
@@ -69,9 +69,8 @@
 					<div class="col-lg-3" th:each="employee, status:${FakeTeamList}">
 						<img class="rounded-circle" alt="" width="140" height="140"
 							th:src="@{https://randomuser.me/api/portraits/women/} + ${status.index+1} + @{.jpg}" />
-						<h3 th:text="${employee.nombre}+${employee.apellidos}" />
-						<h4 th:text="${employee.cargo}" />
-						<p class="lead" th:text="${employee.resumen}" />
+						<h3 th:text="${employee.nombre} + ' ' + ${employee.apellidos}" />
+						<h4 th:text="${employee.cargo}" />				
 					</div>
 				</div>
 
