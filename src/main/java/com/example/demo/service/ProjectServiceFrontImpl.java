@@ -1,16 +1,15 @@
+package com.example.demo.service;
+
 /**
 * Nombre: ProjectServiceFrontImpl.java
-* Descripción: implementación de la interfaz ProjectServiceFrontImpl
+* Descripción: implementación de la interfaz ProjectServiceFront con métodos para Rest Template y encontrar por ID.
 * Fecha: 13/05/2021
 * Versión: 1.0
-* @author Francisco Rayo, Rocio Jiménez  */
-
-package com.example.demo.service;
+* @author Francisco Rayo, Rocio Jiménez 
+**/
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.example.demo.model.Project;
@@ -18,11 +17,6 @@ import com.example.demo.model.Project;
 @Service
 public class ProjectServiceFrontImpl implements ProjectServiceFront {
 
-	/**
-	 * Método para listar todos los proyectos para el front.
-	 * 
-	 * @author Francisco Rayo, Rocio Jiménez 
-	 */
 	// RestTemplate
 	public List<Project> listProjectFront() {
 		RestTemplate restTemplate = new RestTemplate();
@@ -32,10 +26,9 @@ public class ProjectServiceFrontImpl implements ProjectServiceFront {
 	}
 
 	@Override
-	public Project findById(Integer id) {		
+	public Project findById(Integer id) {
 		RestTemplate restTemplate = new RestTemplate();
-		Project project = restTemplate.getForObject("http://localhost:5000/backoffice/proyectos/"+id, Project.class);
-		//return project.getId(id).orElse(null);
+		Project project = restTemplate.getForObject("http://localhost:5000/backoffice/proyectos/" + id, Project.class);
 		return project;
 	}
 

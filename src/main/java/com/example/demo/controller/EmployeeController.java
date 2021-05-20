@@ -37,49 +37,54 @@ public class EmployeeController {
 	private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
 	/**
-	 * Metodo que lista los empleados
+	 * Metodo que lista los empleados en el backoffice
 	 * 
 	 * @param Model n
 	 */
 
-	// listar empleados
 	@GetMapping("/backoffice/equipo")
 	public String listEmployee(Model n) {
 		log.info("----- Inside TeamList ");
 		n.addAttribute("TeamList", employeeService.findAll());
 
 		log.info("-------", employeeService.findAll().toString());
-		return "TeamList"; // aqui es donde voy
+		return "TeamList";
 	}
 
-	// listar empleados front
+	/**
+	 * Metodo que lista los empleados en el frontoffice
+	 * 
+	 * @param Model n
+	 */
+
 	@GetMapping("/equipo")
 	public String listEmployeeFront(Model n) {
 		log.info("----- Inside TeamList ");
 		n.addAttribute("TeamList", employeeService.findAll());
 		n.addAttribute("FakeTeamList", fakeEmployeeService.findAll(16));
 		log.info("----- Contenido de empl ----------------------" + n.toString());
-		return "FrontTeamList"; // aqui es donde voy
+		return "FrontTeamList";
 	}
 
 	/**
 	 * Metodo que da de alta a los empleados
 	 * 
-	 * @param Model model1
 	 */
-
-	// Alta/Nuevo Empleado
 
 	@GetMapping("backoffice/equipo/new")
 	public ModelAndView newEmployee() {
 		ModelAndView model1 = new ModelAndView("TeamForm");
 		model1.addObject("employee", new Employee());
-
 		model1.addObject("cargos", positionService.findAll());
 		return model1;
 	}
 
-	// editar empleado
+	/**
+	 * Metodo para editar los empleados
+	 * 
+	 * @param Model m, int id
+	 */
+
 	@GetMapping("backoffice/equipo/edit")
 	public String editEmployee(@RequestParam("idPers") int id, Model m) {
 		log.info("------Inside editEmployee");
@@ -88,21 +93,24 @@ public class EmployeeController {
 		return "TeamForm";
 	}
 
-	// borra empleado
+	/**
+	 * Metodo para borrar los empleados
+	 * 
+	 * @param int id
+	 */
+
 	@GetMapping("backoffice/equipo/delete")
 	public ModelAndView deleteEmployee(@RequestParam("idPers") int id) {
 		log.info("----- Inside deleteEmployee");
 		employeeService.deleteById(id);
-		return new ModelAndView("redirect:/backoffice/equipo/"); // redirijo porque no quiero ir a TeamList directamente
-																	// sino que quiero
-		// ir pero con los datos ya cargados
+		return new ModelAndView("redirect:/backoffice/equipo/");
 	}
 
 	/**
-	 * Metodo guarda a los empleados (una vez han sido dados de alta)
+	 * Metodo guarda a los empleados (nuevos o editados)
+	 * 
+	 * @param Employee employee
 	 */
-
-	// Salvar Empleado
 
 	@PostMapping("backoffice/equipo/save")
 	public ModelAndView saveEmployee(Employee employee) {

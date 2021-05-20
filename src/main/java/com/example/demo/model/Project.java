@@ -1,12 +1,13 @@
+
+package com.example.demo.model;
+
 /*
  * Nombre Clase: Project.java
  * Descripcion: Clase que representa a los proyectos en los que ha trabajado la empresa e incluye:
- * 	el id, proyecto, fechafin, resumen, descrpcion, imagen, empresa
+ * 			   el id, proyecto, fechafin, resumen, descrpcion, imagen, empresa
  * Fecha: 11/05/2021
  * Version: 1.0
  * Autor: Rocio Jimenez Moreno  **/
-
-package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,14 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-/*
- * Nombre Clase: Project.java
- * Descripcion: Clase que representa a los proyectos en los que ha trabajado la empresa e incluye:
- * 			   el id, proyecto, fechafin, resumen, descrpcion, imagen, empresa
- * Fecha: 11/05/2021
- * Version: 1.0
- * Autor: Rocio Jimenez Moreno  **/
 
 @Entity
 @Table(name = "proyectos")
@@ -63,9 +56,9 @@ public class Project {
 	/**
 	 * Identificativo de la empresa
 	 */
-	
-	@ManyToOne 
-	@JoinColumn(name="empresa")
+
+	@ManyToOne
+	@JoinColumn(name = "empresa")
 	private Client empresa;
 
 	// -----------------------

@@ -15,9 +15,9 @@ import com.example.demo.model.Project;
 import com.example.demo.service.ClientService;
 import com.example.demo.service.ProjectService;
 
-/*
+/**
  * Nombre Clase: ProjectController.java
- * Descripcin: Clase que representa al controlador del proyecto 
+ * Descripcin: Clase que representa al controlador de los proyectos realizados por el equipo 
  * Fecha: 11/05/2021
  * Version: 1.0
  * Autor: Rocio Jimenez Moreno  **/
@@ -39,21 +39,19 @@ public class ProjectController {
 	 * @param Model m
 	 */
 
-	// listar proyectos
 	@GetMapping("/backoffice/proyectos")
 	public String listProject(Model m) {
 		log.info("----- Inside listProject 1");
-		m.addAttribute("projectList", projectService.findAll()); // ese projectList es el objeto , así guardo la
-																	// información
-		/*
-		 * List<Project> l = projectService.findAll(); System.out.println(l.size());
-		 * for(Project p:l){ System.out.println(p); }
-		 */
+		m.addAttribute("projectList", projectService.findAll());
 		log.info("-------", projectService.findAll().toString());
-		return "ProjectList"; // esta es la pagina web a la que voy
+		return "ProjectList";
 	}
 
-	// Alta proyecto
+	/**
+	 * Metodo que da de alta proyectos
+	 * 
+	 */
+
 	@GetMapping("backoffice/proyectos/new")
 	public ModelAndView newProject() {
 		ModelAndView model = new ModelAndView("ProjectForm");
@@ -62,18 +60,28 @@ public class ProjectController {
 		return model;
 	}
 
-	// editar proyectos
+	/**
+	 * Metodo que edita los proyectos
+	 * 
+	 * @param int id, Model m
+	 * 
+	 */
+
 	@GetMapping("backoffice/proyectos/edit")
 	public String editProject(@RequestParam("id") int id, Model m) {
 		log.info("----- Inside editProject");
-		m.addAttribute("project", projectService.getOne(id));// pido el proyecto a la base de datos para tener los
-																// valores a
-																// modificar
+		m.addAttribute("project", projectService.getOne(id));
 		m.addAttribute("clients", clientService.findAll());
 		return "ProjectForm";
 	}
 
-	// salvar proyecto
+	/**
+	 * Metodo que salva los proyectos
+	 * 
+	 * @param Project project
+	 * 
+	 */
+
 	@PostMapping("backoffice/proyectos/save")
 	public ModelAndView saveProject(Project project) {
 		log.info("----- Inside saveProject");
@@ -90,9 +98,6 @@ public class ProjectController {
 	 * @param int "id"
 	 */
 
-	// Eliminar proyectos
-
-	// borra usuarios
 	@GetMapping("backoffice/proyectos/delete")
 
 	public ModelAndView deleteProject(@RequestParam("id") int id) {

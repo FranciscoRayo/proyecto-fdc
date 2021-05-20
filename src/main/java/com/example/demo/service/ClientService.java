@@ -16,7 +16,4 @@ public interface ClientService {
 	// Listar todos los clientes
 	public List<Client> findAll();
 
-	// Recuperar un cliente (no sabemos si lo vamos a necesitar)
-	// public Client getOne(int idClient);
-
 }

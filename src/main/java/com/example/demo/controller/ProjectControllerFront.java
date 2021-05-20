@@ -28,26 +28,36 @@ public class ProjectControllerFront {
 	/**
 	 * Método para listar todos los proyectos para el front
 	 * 
-	 * @author Francisco Rayo, Rocío Jiménez
+	 * @param Model pf
 	 */
+
 	@GetMapping("/proyectos")
 	public String listProjectFront(Model pf) {
 		pf.addAttribute("projectListFront", projectServiceFront.listProjectFront());
-		return "FrontProjectList"; // esta es la pagina web a la que voy
+		return "FrontProjectList";
 	}
-	
-	//carga de index
+
+	/**
+	 * Método para cargar la home en el front
+	 * 
+	 */
+
 	@GetMapping("/")
 	public String index() {
 		return "index"; // esta es la pagina web a la que voy
 	}
-	
+
+	/**
+	 * Método para listar los detalles de un proyecto en el front
+	 * 
+	 * @param Integer id, Model pf
+	 */
 
 	@GetMapping("/proyectos/{id}")
 	public String detailProject(@PathVariable Integer id, Model pf) {
 		Project project = projectServiceFront.findById(id);
 		pf.addAttribute(project);
-		//pf.addAttribute(client);
+		// pf.addAttribute(client);
 		return "FrontProjectDetail";
 	}
 }

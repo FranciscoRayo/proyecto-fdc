@@ -1,5 +1,11 @@
 package com.example.demo.model;
 
+/*
+ * Nombre Clase: FakeEmployee.java
+ * Descripcion: Clase que representa a los trabajadores ficticios de la empresa 
+ * Fecha: 16/05/2021
+ * Version: 1.0
+ * Autor: Jin  **/
 public class FakeEmployee {
 
 	// Atributos
